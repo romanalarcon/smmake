@@ -1,0 +1,27 @@
+#
+# This is n example of a simple light controller. The controller has two methods that allow turning light on/off
+# Events to turn light on (off) when light is on (off) result in different actions executed according to the current state.  
+#
+
+STATEMACHINE LightController:
+
+  # This is the list of states
+  STATES:
+
+    STATE LampOff: 
+      EVENTS: 
+        turnOn : MOVETO LampOn RUN lampTurnedOn;
+        turnOff: STAY RUN lampAlreadyTurnedOff;
+    END
+
+    STATE LampOn: 
+      EVENTS: 
+        turnOff: MOVETO LampOff RUN lampTurnedOff;
+        # --- Injecting "turnOn" in this state will cause an error to be 
+        # --- reported and printed on the standard ouput
+    END
+
+  END
+
+END
+

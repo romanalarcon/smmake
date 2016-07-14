@@ -1,3 +1,6 @@
 .DS_Store
 bin/
-test/
+source/*.o
+source/SMLexScanner.cpp
+source/SMYaccParser.cpp
+source/SMYaccParser.h
